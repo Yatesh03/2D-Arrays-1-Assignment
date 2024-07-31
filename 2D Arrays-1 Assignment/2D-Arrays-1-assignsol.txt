@@ -1,0 +1,176 @@
+Q1: Write a program to store 10 at every index of a 2D matrix with 5 rows and 5 columns.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int m;
+    cout << "Enter the rows/columns: ";
+    cin >> m;
+    int arr[m][m];
+    // storing 10 at every index.
+    for(int i = 0;i < m;i++){
+        for(int j = 0;j < m;j++){
+            arr[i][j] = 10;
+        }
+    }
+    // Printing
+    for(int i = 0;i < m;i++){
+        for(int j = 0;j < m;j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+
+Q2:Write a program to add two matrices and save the result in one of the given matrices.
+
+#include<iostream>
+using namespace std;
+int main(){
+    cout << "First array: " << endl;
+    int m;
+    cout << "Enter the rows: ";
+    cin >> m;
+    int n;
+    cout << "Enter the columns: ";
+    cin >> n;
+    int arr[m][n];
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n;j++){
+            cin >> arr[i][j];
+        }
+    }
+    cout <<"Second array: " << endl;
+    int arr1[m][n];
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n;j++){
+            cin >> arr1[i][j];
+        }
+    }
+    // Addition stored in one matrix.
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n;j++){
+            arr1[i][j] = arr1[i][j] + arr[i][j];
+        }
+    }
+    cout << "Sum of array: " << endl;
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n;j++){
+            cout << arr1[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+
+
+Q3: Given a matrix ‘A’ of dimension n x m and 2 coordinates (l1, r1) and (l2, r2). Return the sum of the rectangle from (l1,r1) to (l2, r2).
+
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cout << "Enter the rows: ";
+    cin >> n;
+    int m;
+    cout << "Enter the columns: ";
+    cin >> m;
+    int A[n][m];
+    // input elements in 2D array.
+    for(int i = 0;i < n;i++){
+        for(int j = 0;j < m;j++){
+            cin >> A[i][j];
+        }
+    }
+    int l1,r1,l2,r2;
+    cin >> l1 >> r1 >> l2 >> r2;
+    int sum = 0;
+    for(int i = l1;i <= l2;i++){
+        for(int j = r1;j <= r2;j++){
+            sum += A[i][j];
+        }
+    }
+    cout << "Sum : " << sum;
+}
+
+
+// Q4: Write a C++ program to find the largest element of a given 2D array of integers.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[2][3] = {{3,6,4},{8,1,2}};
+    // Printing matrix
+    for(int i = 0;i < 2;i++){
+        for(int j = 0;j < 3;j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    // MAximum Element.
+    int max = arr[0][0];
+    for(int i = 0;i < 2;i++){
+        for(int j = 0;j < 3;j++){
+            if(arr[i][j] > max) max = arr[i][j];
+        }
+    }
+    cout << "Max Element: " << max;
+}
+
+
+// Q5: Write a program to print the row number having the maximum sum in a given matrix.
+
+#include<iostream>
+#include<climits>
+using namespace std;
+int main(){
+    int arr[3][3] = {{3,6,4},{8,1,2},{4,9,3}};
+    // Printing matrix
+    cout << "Array: "<< endl;
+    for(int i = 0;i < 3;i++){
+        for(int j = 0;j < 3;j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    // MAximum ROW.
+    int max = INT_MIN;
+    int sum{};
+    int Maxrow = 0;
+    for(int i = 0;i < 3;i++){
+        sum = 0;
+        for(int j = 0;j < 3;j++){
+            sum += arr[i][j];
+        }
+        if(sum > max) Maxrow = i;
+    }
+    cout << "Row no. contains max sum: " << Maxrow;
+}
+
+
+// Q6: Write a function which accepts a 2D array of integers and its size as arguments and displays the elements of middle row and the elements of middle column.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cout << "Enter the number of rows/columns : ";
+    cin >> n;
+    int arr[n][n];
+    cout << "Enter the matrix elements : "<<endl;
+    for(int i = 0 ; i < n ; i++){
+        for(int j = 0 ; j < n ; j++){
+            cin >> arr[i][j];
+        }
+    }
+    // Printing;
+    cout << "Middle rows and columns: "<<endl;
+    for(int i = 0 ; i < n ; i++){
+        for(int j = 0 ; j < n ; j++){
+            if(i == n/2 or j == n/2) cout << arr[i][j]<<" ";
+            else cout << " ";
+        }
+        cout << endl;
+    }
+}
